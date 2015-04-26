@@ -2,9 +2,11 @@
 ## functions do
 
 ## Write a short comment describing this function
-#Accepts a matrix and creates a list of functions that returns:
-#1.) The original matrix
-#2.) The 
+#Accepts a matrix and creates a list of functions that:
+#0.) Saves the original matrix(set)
+#1.) Returns the original matrix (get)
+#2.) Sets the inverse matrix(setInverse)
+#3.) Returns the inverse matrix(getInverse)
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   if(nrow(x) != ncol(x)) #warns user that matrix is not square
@@ -18,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
   }
   
   get <- function() x # function to return the original matrix
-  setInverse <- function(solve) inv <<- solve #function that calculates the inverse
+  setInverse <- function(solve) inv <<- solve #function that saves the inverse
   getInverse <- function() inv #function to get the cached inverse
   list(set = set, get = get,
        setInverse = setInverse,
